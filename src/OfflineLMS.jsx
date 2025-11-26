@@ -15,8 +15,13 @@ const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
-      // Default to false (Light Mode) if nothing is saved
-      return saved === 'dark';
+      // If user has saved a preference, use it. Otherwise, follow system setting.
+      if (saved) return saved === 'dark';
+      try {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } catch {
+        return false;
+      }
     }
     return false;
   });
@@ -111,7 +116,7 @@ const MainApp = () => {
   // Logic
   const { status, progress, initEngine, generateResponse } = useWebLLM();
   const chatBottomRef = useRef(null);
-  const VLLM_PRESET = { url: 'http://localhost:8000/v1', model: 'openai/gpt-oss-20b' };
+  const VLLM_PRESET = { url: 'https://vllm.pixelcipher.online/v1', model: 'openai/gpt-oss-20b' };
 
   useEffect(() => { chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [chatMessages]);
 
