@@ -21,79 +21,128 @@ export const CodeBlock = ({ children, className }) => {
   return (
     <div className="relative my-4 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 group">
       <div className="flex justify-between items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-        <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 uppercase">{lang}</span>
+        <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 uppercase">
+          {lang}
+        </span>
         <button
           onClick={handleCopy}
           className="flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
         >
-          {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
+          {copied ? (
+            <Check size={14} className="text-emerald-500" />
+          ) : (
+            <Copy size={14} />
+          )}
           <span>{copied ? 'Copied!' : 'Copy'}</span>
         </button>
       </div>
       <div className="p-4 overflow-x-auto">
-        <code className="font-mono text-sm text-slate-800 dark:text-slate-200 whitespace-pre">{children}</code>
+        <code className="font-mono text-sm text-slate-800 dark:text-slate-200 whitespace-pre">
+          {children}
+        </code>
       </div>
     </div>
   );
 };
 
 // Robust Markdown Renderer
-export default function FormatMessage({ content }) {
+export default function FormatMessage({
+  content,
+  isUserMessage = false,
+}) {
+  // DIFFERENT text colors for user vs assistant
+  const textColor = isUserMessage
+    ? 'text-slate-900 dark:text-slate-50'
+    : 'text-slate-800 dark:text-slate-200';
+
+  const headingColor = isUserMessage
+    ? 'text-slate-950 dark:text-slate-50'
+    : 'text-slate-900 dark:text-slate-100';
+
+  const linkColor = isUserMessage
+    ? 'text-indigo-700 dark:text-indigo-300'
+    : 'text-indigo-600 dark:text-indigo-400';
+
   return (
-    // NOTE: place the styling on the wrapper so ReactMarkdown doesn't swallow or alter layout props
     <div className="markdown-content space-y-3 text-sm leading-relaxed">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
           // 1. Headers
           h1: ({ node, ...props }) => (
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white mt-6 mb-3 pb-2 border-b border-slate-200 dark:border-slate-700" {...props} />
+            <h1
+              className={`text-2xl font-bold ${headingColor} mt-6 mb-3 pb-2 border-b border-slate-200 dark:border-slate-700`}
+              {...props}
+            />
           ),
           h2: ({ node, ...props }) => (
-            <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mt-5 mb-2" {...props} />
+            <h2
+              className={`text-xl font-bold ${headingColor} mt-5 mb-2`}
+              {...props}
+            />
           ),
           h3: ({ node, ...props }) => (
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mt-4 mb-2" {...props} />
+            <h3
+              className={`text-lg font-bold ${headingColor} mt-4 mb-2`}
+              {...props}
+            />
           ),
 
           // 2. Links
           a: ({ node, ...props }) => (
-            <a className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium" target="_blank" rel="noopener noreferrer" {...props} />
+            <a
+              className={`${linkColor} hover:underline font-medium`}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...props}
+            />
           ),
 
           // 3. Lists
           ul: ({ node, ...props }) => (
-            <ul className="list-disc list-outside ml-5 space-y-1 text-slate-700 dark:text-slate-300" {...props} />
+            <ul
+              className={`list-disc list-outside ml-5 space-y-1 ${textColor}`}
+              {...props}
+            />
           ),
           ol: ({ node, ...props }) => (
-            <ol className="list-decimal list-outside ml-5 space-y-1 text-slate-700 dark:text-slate-300" {...props} />
+            <ol
+              className={`list-decimal list-outside ml-5 space-y-1 ${textColor}`}
+              {...props}
+            />
           ),
 
           // 4. Code (Inline vs Block)
-            // Render inline code as <code> but handle fenced/code-blocks via `pre` to avoid nesting
-            code({ node, inline, className, children, ...props }) {
-              if (inline) {
-                return (
-                  <code className="bg-slate-100 dark:bg-slate-800 text-pink-600 dark:text-pink-400 px-1.5 py-0.5 rounded text-xs font-mono font-bold border border-slate-200 dark:border-slate-700" {...props}>
-                    {children}
-                  </code>
-                );
-              }
-              // For non-inline code (blocks), let `pre` handle rendering to avoid placing block elements inside <p>
-              return <>{children}</>;
-            },
+          code({ node, inline, className, children, ...props }) {
+            if (inline) {
+              return (
+                <code
+                  className="bg-slate-100 dark:bg-slate-800 text-pink-600 dark:text-pink-400 px-1.5 py-0.5 rounded text-xs font-mono font-bold border border-slate-200 dark:border-slate-700"
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            }
+            return <>{children}</>;
+          },
 
-            // Render the outer <pre> (fenced code blocks) as our CodeBlock component
-            pre: ({ node, children, ...props }) => {
-              // children will typically be an array with a single <code> element
-              const codeElement = Array.isArray(children) ? children[0] : children;
-              const className = codeElement?.props?.className;
-              const codeChildren = codeElement?.props?.children ?? '';
-              return <CodeBlock className={className}>{codeChildren}</CodeBlock>;
-            },
+          // Render the outer <pre> (fenced code blocks)
+          pre: ({ node, children, ...props }) => {
+            const codeElement = Array.isArray(children)
+              ? children[0]
+              : children;
+            const className = codeElement?.props?.className;
+            const codeChildren = codeElement?.props?.children ?? '';
+            return (
+              <CodeBlock className={className}>{codeChildren}</CodeBlock>
+            );
+          },
 
           // 5. Paragraphs
-          p: ({ node, ...props }) => <p className="text-slate-700 dark:text-slate-300 leading-7" {...props} />,
+          p: ({ node, ...props }) => (
+            <p className={`${textColor} leading-7`} {...props} />
+          ),
         }}
       >
         {content}

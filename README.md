@@ -14,3 +14,27 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Dev server & backend
+
+This project includes a lightweight Flask backend (under `backend/`) that provides authentication, course completion tracking, and ratings. To run the project locally:
+
+1. Start the Flask API:
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python db_init.py
+FLASK_APP=app.py FLASK_ENV=1 python app.py
+```
+
+2. Start the frontend dev server (Vite):
+
+```bash
+npm install
+VITE_API_BASE="http://localhost:5000/api" npm run dev
+```
+
+If your backend runs on a different host/port, set `VITE_API_BASE` accordingly so the frontend points to the API.
