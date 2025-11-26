@@ -1,0 +1,162 @@
+[
+  {
+    "id": "module_1_python_basics",
+    "title": "Module 1: Python Basics for Beginners",
+    "description": "Start from zero. Learn how to write your first Python program, understand variables, and master the fundamentals.",
+    "lessons": [
+      {
+        "id": "py_intro",
+        "title": "0. Getting Started with Python",
+        "content": "# Welcome to Python!\n\n## What is Python?\nPython is a programming language that reads like English. It's one of the easiest languages to learn.\n\n## Installing Python\nGo to https://www.python.org/downloads/ and download Python 3.10 or higher.\n\n## Your First Program\nOpen a text editor (like Notepad or VS Code) and write:\n\n```python\nprint(\"Hello, World!\")\n```\n\nSave it as `hello.py` and run it in your terminal:\n```bash\npython hello.py\n```\n\nYou should see:\n```\nHello, World!\n```\n\n## What Happened?\n- `print()` is a function that displays text on the screen\n- Text inside quotes is called a \"string\"\n- The computer reads your code line by line, top to bottom",
+        "offline_ready": true
+      },
+      {
+        "id": "py_1",
+        "title": "1. Variables: Storing Information",
+        "content": "# Variables Explained\n\n## What is a Variable?\nA variable is a container that stores information. Think of it like a box with a label.\n\n## Creating Variables\nYou create a variable by giving it a name and a value:\n\n```python\nname = \"Alice\"\nage = 25\nheight = 5.7\n```\n\n## Variable Rules\n- Names must start with a letter or underscore `_`\n- Names can contain letters, numbers, and underscores\n- Names are case-sensitive (Name and name are different)\n- Use descriptive names: `user_age` instead of `ua`\n\n## Printing Variables\n\n```python\nname = \"Bob\"\nprint(name)           # Prints: Bob\nprint(\"Hello, \" + name)  # Prints: Hello, Bob\n```\n\n## Changing Variables\nYou can update a variable's value:\n\n```python\ncount = 5\nprint(count)  # Prints: 5\ncount = 10\nprint(count)  # Prints: 10\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_2",
+        "title": "2. Data Types: Different Kinds of Information",
+        "content": "# Data Types\n\nPython stores different types of information. Here are the most common ones:\n\n## Strings (Text)\nAlways use quotes (single or double).\n\n```python\nfirst_name = \"John\"\nlast_name = 'Doe'\nmessage = \"Hello, World!\"\n\nprint(first_name)  # Prints: John\n```\n\n## Integers (Whole Numbers)\nNumbers without a decimal point.\n\n```python\nage = 25\nyear = 2025\ntemperature = -5\n\nprint(age)  # Prints: 25\n```\n\n## Floats (Decimal Numbers)\nNumbers with a decimal point.\n\n```python\nprice = 19.99\nheight = 5.7\npercent = 0.5\n\nprint(price)  # Prints: 19.99\n```\n\n## Booleans (True/False)\nUsed for yes/no decisions.\n\n```python\nis_student = True\nis_teacher = False\n\nprint(is_student)  # Prints: True\n```\n\n## Checking the Type\nYou can check what type something is:\n\n```python\nprint(type(25))        # Prints: <class 'int'>\nprint(type(\"hello\"))   # Prints: <class 'str'>\nprint(type(3.14))      # Prints: <class 'float'>\nprint(type(True))      # Prints: <class 'bool'>\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_3",
+        "title": "3. Math Operators: Simple Calculations",
+        "content": "# Math Operations\n\nPython can do math just like a calculator!\n\n## Basic Operations\n\n```python\n# Addition\nresult = 10 + 5\nprint(result)  # Prints: 15\n\n# Subtraction\nresult = 10 - 5\nprint(result)  # Prints: 5\n\n# Multiplication\nresult = 10 * 5\nprint(result)  # Prints: 50\n\n# Division (always returns a decimal)\nresult = 10 / 5\nprint(result)  # Prints: 2.0\n\n# Whole Division (no decimal)\nresult = 10 // 3\nprint(result)  # Prints: 3\n\n# Remainder (leftover)\nresult = 10 % 3\nprint(result)  # Prints: 1\n\n# Power (exponent)\nresult = 2 ** 3\nprint(result)  # Prints: 8\n```\n\n## Order of Operations\nPython follows standard math rules (PEMDAS):\n\n```python\nresult = 2 + 3 * 4\nprint(result)  # Prints: 14 (not 20)\n\nresult = (2 + 3) * 4\nprint(result)  # Prints: 20 (parentheses first)\n```\n\n## Shortcut Operators\n\n```python\nx = 5\nx = x + 3\nprint(x)  # Prints: 8\n\n# Shorter way:\nx = 5\nx += 3\nprint(x)  # Prints: 8\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_4",
+        "title": "4. Getting User Input",
+        "content": "# User Input\n\n## The input() Function\nYou can ask the user to type something:\n\n```python\nname = input(\"What is your name? \")\nprint(\"Hello, \" + name)\n```\n\nWhen you run this:\n```\nWhat is your name? Alice\nHello, Alice\n```\n\n## Important: input() Always Returns Text\nEven if the user types a number, it's stored as text:\n\n```python\nage = input(\"How old are you? \")\nprint(type(age))  # Prints: <class 'str'>\nprint(age + 1)    # ERROR! Can't add text and number\n```\n\n## Converting Input to Numbers\nUse `int()` or `float()` to convert:\n\n```python\nage = input(\"How old are you? \")\nage = int(age)  # Convert to integer\nprint(age + 1)  # Now this works!\n```\n\n## Complete Example\n\n```python\nname = input(\"Enter your name: \")\nage = input(\"Enter your age: \")\nage = int(age)\n\nprint(\"Hello, \" + name)\nprint(\"Next year you will be \" + str(age + 1))\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_5",
+        "title": "5. Comparison and Logic",
+        "content": "# Comparisons and Decisions\n\n## Comparison Operators\nThese check if something is true or false:\n\n```python\n# Equal to\nprint(5 == 5)   # True\nprint(5 == 3)   # False\n\n# Not equal to\nprint(5 != 3)   # True\nprint(5 != 5)   # False\n\n# Greater than\nprint(5 > 3)    # True\nprint(3 > 5)    # False\n\n# Less than\nprint(3 < 5)    # True\nprint(5 < 3)    # False\n\n# Greater than or equal\nprint(5 >= 5)   # True\n\n# Less than or equal\nprint(3 <= 5)   # True\n```\n\n## Logic Operators\n\n```python\n# AND (both must be true)\nif age > 18 and has_license:\n    print(\"Can drive\")\n\n# OR (at least one must be true)\nif is_weekend or is_holiday:\n    print(\"No work today\")\n\n# NOT (reverses true/false)\nif not is_raining:\n    print(\"Go outside\")\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_6",
+        "title": "6. If Statements: Making Decisions",
+        "content": "# If Statements\n\nPrograms need to make decisions. Use `if` to run code only when something is true.\n\n## Basic If Statement\n\n```python\nage = 20\n\nif age >= 18:\n    print(\"You are an adult\")\n```\n\n## If-Else\nRun different code if the condition is false:\n\n```python\nage = 15\n\nif age >= 18:\n    print(\"You are an adult\")\nelse:\n    print(\"You are a minor\")\n```\n\nOutput:\n```\nYou are a minor\n```\n\n## If-Elif-Else\nCheck multiple conditions:\n\n```python\nage = 18\n\nif age < 13:\n    print(\"Child\")\nelif age < 18:\n    print(\"Teenager\")\nelif age < 65:\n    print(\"Adult\")\nelse:\n    print(\"Senior\")\n```\n\nOutput:\n```\nYou are an adult\n```\n\n## Important: Indentation\nPython uses indentation (spaces) to show what code belongs to the `if`:\n\n```python\nif age >= 18:\n    print(\"First line of if block\")  # This runs if true\n    print(\"Second line of if block\")\nprint(\"This always runs\")  # This always runs\n```\n\n## Complex Conditions\n\n```python\nage = 20\nhas_license = True\n\nif age >= 18 and has_license:\n    print(\"You can drive\")\nelse:\n    print(\"You cannot drive\")\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_7",
+        "title": "7. Lists: Storing Multiple Items",
+        "content": "# Lists\n\nA list stores multiple items in one variable.\n\n## Creating a List\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nprint(fruits)  # Prints: ['apple', 'banana', 'cherry']\n```\n\n## Accessing Items\nEach item has a position number called an \"index\". Counting starts at 0!\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nprint(fruits[0])  # Prints: apple\nprint(fruits[1])  # Prints: banana\nprint(fruits[2])  # Prints: cherry\n```\n\n## Negative Indexing\nYou can count from the end:\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nprint(fruits[-1])  # Last item: cherry\nprint(fruits[-2])  # Second to last: banana\n```\n\n## Adding Items\n\n```python\nfruits = [\"apple\", \"banana\"]\nfruits.append(\"cherry\")  # Add to end\nprint(fruits)  # ['apple', 'banana', 'cherry']\n```\n\n## Removing Items\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfruits.remove(\"banana\")\nprint(fruits)  # ['apple', 'cherry']\n```\n\n## List Length\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nprint(len(fruits))  # Prints: 3\n```\n\n## Lists with Different Types\n\n```python\nmixed = [\"John\", 25, 5.7, True]\nprint(mixed)  # ['John', 25, 5.7, True]\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_8",
+        "title": "8. Loops: Repeating Code",
+        "content": "# Loops\n\nLoops let you run the same code multiple times without typing it over and over.\n\n## For Loops\nA `for` loop goes through each item in a list:\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    print(fruit)\n```\n\nOutput:\n```\napple\nbanana\ncherry\n```\n\n## For Loop with Range\nYou can also loop a specific number of times:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nOutput:\n```\n0\n1\n2\n3\n4\n```\n\n## While Loops\nA `while` loop runs as long as something is true:\n\n```python\ncount = 0\n\nwhile count < 3:\n    print(count)\n    count = count + 1\n```\n\nOutput:\n```\n0\n1\n2\n```\n\n## Breaking Out of a Loop\nUse `break` to stop a loop early:\n\n```python\nfor i in range(10):\n    if i == 5:\n        break  # Stop when i equals 5\n    print(i)\n```\n\nOutput:\n```\n0\n1\n2\n3\n4\n```\n\n## Skipping Items\nUse `continue` to skip the current item:\n\n```python\nfor i in range(5):\n    if i == 2:\n        continue  # Skip when i equals 2\n    print(i)\n```\n\nOutput:\n```\n0\n1\n3\n4\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_9",
+        "title": "9. Strings: Working with Text",
+        "content": "# Strings\n\nStrings are text. Let's learn tricks for working with them.\n\n## Creating Strings\n\n```python\nname = \"Alice\"\nmessage = 'Hello'\nlong_text = \"\"\"This is a\nmulti-line string\"\"\"\n```\n\n## String Length\n\n```python\nname = \"Alice\"\nprint(len(name))  # Prints: 5\n```\n\n## Accessing Characters\nLike lists, strings have indexes:\n\n```python\nname = \"Alice\"\nprint(name[0])  # Prints: A\nprint(name[1])  # Prints: l\nprint(name[-1]) # Prints: e (last character)\n```\n\n## String Slicing\nGet a portion of a string:\n\n```python\nname = \"Alice\"\nprint(name[0:3])  # Prints: Ali (from index 0 to 2)\nprint(name[1:])   # Prints: lice (from index 1 to end)\n```\n\n## String Concatenation\nCombine strings together:\n\n```python\nfirst = \"John\"\nlast = \"Doe\"\nfull_name = first + \" \" + last\nprint(full_name)  # Prints: John Doe\n```\n\n## String Methods\nUseful built-in functions:\n\n```python\nname = \"Alice\"\nprint(name.upper())     # Prints: ALICE\nprint(name.lower())     # Prints: alice\nprint(name.capitalize()) # Prints: Alice\n\nsentence = \"Hello World\"\nprint(sentence.replace(\"World\", \"Python\"))  # Hello Python\n```\n\n## String Formatting\nInsert variables into strings:\n\n```python\nname = \"Bob\"\nage = 25\n\nmessage = f\"My name is {name} and I am {age} years old\"\nprint(message)  # My name is Bob and I am 25 years old\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_10",
+        "title": "10. Dictionaries: Key-Value Storage",
+        "content": "# Dictionaries\n\nA dictionary stores information with labels (keys) and values. Like a real dictionary with words and definitions.\n\n## Creating a Dictionary\n\n```python\nstudent = {\n    \"name\": \"Alice\",\n    \"age\": 20,\n    \"grade\": \"A\"\n}\n```\n\n## Accessing Values\nUse the key (label) to get the value:\n\n```python\nstudent = {\"name\": \"Alice\", \"age\": 20}\n\nprint(student[\"name\"])  # Prints: Alice\nprint(student[\"age\"])   # Prints: 20\n```\n\n## Adding Items\n\n```python\nstudent = {\"name\": \"Alice\"}\nstudent[\"age\"] = 20\nstudent[\"city\"] = \"New York\"\n\nprint(student)\n# {'name': 'Alice', 'age': 20, 'city': 'New York'}\n```\n\n## Removing Items\n\n```python\nstudent = {\"name\": \"Alice\", \"age\": 20}\ndel student[\"age\"]\nprint(student)  # {'name': 'Alice'}\n```\n\n## Checking if a Key Exists\n\n```python\nstudent = {\"name\": \"Alice\"}\n\nif \"age\" in student:\n    print(\"Has age\")\nelse:\n    print(\"No age\")  # This will print\n```\n\n## Looping Through Dictionaries\n\n```python\nstudent = {\"name\": \"Alice\", \"age\": 20}\n\nfor key in student:\n    print(key, \":\", student[key])\n```\n\nOutput:\n```\nname : Alice\nage : 20\n```",
+        "offline_ready": true
+      }
+    ]
+  },
+  {
+    "id": "module_2_python_intermediate",
+    "title": "Module 2: Python Intermediate Concepts",
+    "description": "Level up your Python skills. Learn functions, error handling, and file operations.",
+    "lessons": [
+      {
+        "id": "py_func_1",
+        "title": "1. Functions: Reusable Code",
+        "content": "# Functions\n\nA function is a block of code you can reuse. Instead of writing the same code over and over, you write it once in a function.\n\n## Creating a Function\n\n```python\ndef greet():\n    print(\"Hello!\")\n\ngreet()  # Call the function\n```\n\nOutput:\n```\nHello!\n```\n\n## Functions with Parameters\nParameters are inputs to your function:\n\n```python\ndef greet(name):\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")  # Prints: Hello, Alice!\ngreet(\"Bob\")    # Prints: Hello, Bob!\n```\n\n## Functions with Multiple Parameters\n\n```python\ndef add(x, y):\n    result = x + y\n    print(result)\n\nadd(5, 3)  # Prints: 8\n```\n\n## Return Values\nFunctions can send information back:\n\n```python\ndef add(x, y):\n    return x + y\n\nresult = add(5, 3)\nprint(result)  # Prints: 8\n```\n\n## Default Parameters\nSet default values:\n\n```python\ndef greet(name=\"Friend\"):\n    print(f\"Hello, {name}!\")\n\ngreet()          # Prints: Hello, Friend!\ngreet(\"Alice\")   # Prints: Hello, Alice!\n```\n\n## Complete Example\n\n```python\ndef calculate_total(price, quantity=1, tax_rate=0.1):\n    subtotal = price * quantity\n    total = subtotal + (subtotal * tax_rate)\n    return total\n\nprint(calculate_total(10, 3))  # Price: 10, Qty: 3, Tax: 10%\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_func_2",
+        "title": "2. Error Handling: Preventing Crashes",
+        "content": "# Error Handling\n\nSometimes code fails. Instead of crashing, you can handle errors gracefully.\n\n## What is an Error?\n\n```python\nage = input(\"Enter your age: \")\nprint(age + 1)  # ERROR! Can't add text and number\n```\n\nThis crashes with an error. We can catch it!\n\n## Try-Except\n\n```python\nage = input(\"Enter your age: \")\n\ntry:\n    age = int(age)\n    print(age + 1)\nexcept:\n    print(\"Please enter a valid number\")\n```\n\nIf the user enters \"abc\", instead of crashing, it prints the error message.\n\n## Specific Error Types\n\n```python\nage = input(\"Enter your age: \")\n\ntry:\n    age = int(age)\n    print(age + 1)\nexcept ValueError:\n    print(\"Age must be a number\")\n```\n\n## Try-Except-Else\nRun code only if there's no error:\n\n```python\nage = input(\"Enter your age: \")\n\ntry:\n    age = int(age)\nexcept ValueError:\n    print(\"Invalid number\")\nelse:\n    print(f\"Your age is {age}\")\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "py_func_3",
+        "title": "3. Reading and Writing Files",
+        "content": "# File Operations\n\nPrograms often need to read and write files on your computer.\n\n## Writing to a File\n\n```python\nwith open(\"myfile.txt\", \"w\") as file:\n    file.write(\"Hello, World!\\n\")\n    file.write(\"This is a new line\")\n```\n\nThis creates a file called `myfile.txt` and writes text to it.\n\n## Reading from a File\n\n```python\nwith open(\"myfile.txt\", \"r\") as file:\n    content = file.read()\n    print(content)\n```\n\nOutput:\n```\nHello, World!\nThis is a new line\n```\n\n## Reading Line by Line\n\n```python\nwith open(\"myfile.txt\", \"r\") as file:\n    for line in file:\n        print(line)\n```\n\n## Appending to a File\nAdd new content without erasing old content:\n\n```python\nwith open(\"myfile.txt\", \"a\") as file:\n    file.write(\"\\nAppended line\")\n```\n\n## Complete Example\n\n```python\nname = input(\"Enter your name: \")\n\nwith open(\"names.txt\", \"a\") as file:\n    file.write(name + \"\\n\")\n\nprint(\"Name saved!\")\n```",
+        "offline_ready": false
+      }
+    ]
+  },
+  {
+    "id": "module_3_html_css_basics",
+    "title": "Module 3: Web Fundamentals - HTML & CSS",
+    "description": "Learn how web pages are built. Understand HTML structure and CSS styling before connecting Python.",
+    "lessons": [
+      {
+        "id": "web_html_1",
+        "title": "1. HTML Basics: Building Web Pages",
+        "content": "# HTML: The Building Blocks of the Web\n\nHTML (HyperText Markup Language) creates the structure of web pages.\n\n## Your First Web Page\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>My First Website</title>\n</head>\n<body>\n    <h1>Welcome!</h1>\n    <p>This is my first web page.</p>\n</body>\n</html>\n```\n\nSave this as `index.html` and open it in your web browser.\n\n## HTML Tags Explained\n\n- `<!DOCTYPE html>` - Tells the browser this is HTML5\n- `<html>` - The root tag, wraps everything\n- `<head>` - Contains information about the page (title, meta tags)\n- `<title>` - What appears in the browser tab\n- `<body>` - The visible content\n- `<h1>` to `<h6>` - Headings (h1 is largest)\n- `<p>` - Paragraph of text\n\n## Text Formatting\n\n```html\n<b>Bold text</b>\n<i>Italic text</i>\n<u>Underlined text</u>\n<strong>Important text</strong>\n<em>Emphasized text</em>\n```\n\n## Lists\n\n### Unordered List (Bullets)\n```html\n<ul>\n    <li>Apple</li>\n    <li>Banana</li>\n    <li>Cherry</li>\n</ul>\n```\n\n### Ordered List (Numbers)\n```html\n<ol>\n    <li>First step</li>\n    <li>Second step</li>\n    <li>Third step</li>\n</ol>\n```\n\n## Links\n\n```html\n<a href=\"https://www.google.com\">Click here to go to Google</a>\n<a href=\"about.html\">Go to About page</a>\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "web_html_2",
+        "title": "2. HTML Forms: Getting User Input",
+        "content": "# HTML Forms\n\nForms let users type information that your Python code can receive.\n\n## Basic Form\n\n```html\n<form method=\"POST\" action=\"/submit\">\n    <label>Name:</label>\n    <input type=\"text\" name=\"username\">\n    \n    <label>Email:</label>\n    <input type=\"email\" name=\"email\">\n    \n    <button type=\"submit\">Submit</button>\n</form>\n```\n\n## Input Types\n\n```html\n<!-- Text input -->\n<input type=\"text\" name=\"fullname\">\n\n<!-- Email input -->\n<input type=\"email\" name=\"email\">\n\n<!-- Password (hidden text) -->\n<input type=\"password\" name=\"password\">\n\n<!-- Number input -->\n<input type=\"number\" name=\"age\">\n\n<!-- Checkbox -->\n<input type=\"checkbox\" name=\"agree\"> I agree\n\n<!-- Radio button -->\n<input type=\"radio\" name=\"gender\" value=\"male\"> Male\n<input type=\"radio\" name=\"gender\" value=\"female\"> Female\n\n<!-- Dropdown -->\n<select name=\"country\">\n    <option>USA</option>\n    <option>Canada</option>\n    <option>Mexico</option>\n</select>\n\n<!-- Text area (multiple lines) -->\n<textarea name=\"message\" rows=\"4\" cols=\"50\"></textarea>\n```\n\n## Complete Form Example\n\n```html\n<form method=\"POST\" action=\"/login\">\n    <h2>Login</h2>\n    \n    <label>Username:</label><br>\n    <input type=\"text\" name=\"username\"><br><br>\n    \n    <label>Password:</label><br>\n    <input type=\"password\" name=\"password\"><br><br>\n    \n    <button type=\"submit\">Login</button>\n</form>\n```",
+        "offline_ready": true
+      },
+      {
+        "id": "web_css_1",
+        "title": "3. CSS: Making It Beautiful",
+        "content": "# CSS: Styling Your Web Page\n\nCSS (Cascading Style Sheets) makes HTML look good.\n\n## Adding CSS to HTML\n\n### Method 1: Inside a <style> tag\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <style>\n        body {\n            background-color: #f0f0f0;\n            font-family: Arial, sans-serif;\n        }\n        \n        h1 {\n            color: blue;\n        }\n        \n        p {\n            color: gray;\n        }\n    </style>\n</head>\n<body>\n    <h1>My Website</h1>\n    <p>This is styled!</p>\n</body>\n</html>\n```\n\n### Method 2: External CSS File\n\n**index.html:**\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n    <h1>My Website</h1>\n</body>\n</html>\n```\n\n**style.css:**\n```css\nbody {\n    background-color: #f0f0f0;\n}\n```\n\n## Common CSS Properties\n\n```css\n/* Colors */\ncolor: blue;              /* Text color */\nbackground-color: yellow; /* Background color */\n\n/* Fonts */\nfont-family: Arial, sans-serif;\nfont-size: 18px;\nfont-weight: bold;\n\n/* Spacing */\nmargin: 20px;     /* Outside spacing */\npadding: 10px;    /* Inside spacing */\n\n/* Size */\nwidth: 200px;\nheight: 100px;\n\n/* Borders */\nborder: 2px solid black;\nborder-radius: 5px;\n\n/* Text alignment */\ntext-align: center;\n```\n\n## Classes and IDs\n\nApply styles to specific elements:\n\n```html\n<style>\n    .highlight {\n        background-color: yellow;\n    }\n    \n    #main-title {\n        color: darkblue;\n        font-size: 32px;\n    }\n</style>\n\n<h1 id=\"main-title\">Welcome</h1>\n<p class=\"highlight\">This is highlighted</p>\n<p class=\"highlight\">This is also highlighted</p>\n```",
+        "offline_ready": true
+      }
+    ]
+  },
+  {
+    "id": "module_4_flask_web_dev",
+    "title": "Module 4: Building Web Apps with Flask",
+    "description": "Connect Python to the web. Build real interactive websites with Flask.",
+    "lessons": [
+      {
+        "id": "flask_1",
+        "title": "1. Installing Flask and Your First App",
+        "content": "# Getting Started with Flask\n\nFlask is a Python library for building websites.\n\n## Installation\n\nOpen your terminal and run:\n\n```bash\npip install flask\n```\n\n## Your First Flask App\n\nCreate a file called `app.py`:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return \"<h1>Hello, World!</h1>\"\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\n## Running Your App\n\nIn the terminal:\n\n```bash\npython app.py\n```\n\nYou should see:\n```\n* Running on http://127.0.0.1:5000\n```\n\nOpen your web browser and go to `http://localhost:5000` and you'll see your page!\n\n## What's Happening?\n\n- `from flask import Flask` - Import Flask\n- `app = Flask(__name__)` - Create a Flask application\n- `@app.route(\"/\")` - When someone visits the root URL (/)\n- `def home():` - Run this function\n- `return \"<h1>Hello, World!</h1>\"` - Send this HTML to the browser\n- `app.run(debug=True)` - Run the app in debug mode (auto-reloads)",
+        "offline_ready": false
+      },
+      {
+        "id": "flask_2",
+        "title": "2. Routes and URLs",
+        "content": "# Routes in Flask\n\nRoutes map URLs to Python functions.\n\n## Multiple Routes\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return \"<h1>Home Page</h1>\"\n\n@app.route(\"/about\")\ndef about():\n    return \"<h1>About Us</h1>\"\n\n@app.route(\"/contact\")\ndef contact():\n    return \"<h1>Contact Page</h1>\"\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\nNow you have:\n- `http://localhost:5000/` - Shows Home Page\n- `http://localhost:5000/about` - Shows About Us\n- `http://localhost:5000/contact` - Shows Contact Page\n\n## Dynamic Routes (Variable URLs)\n\nCatch values from the URL:\n\n```python\n@app.route(\"/user/<name>\")\ndef greet_user(name):\n    return f\"<h1>Hello, {name}!</h1>\"\n```\n\nNow:\n- `http://localhost:5000/user/alice` - Shows: Hello, alice!\n- `http://localhost:5000/user/bob` - Shows: Hello, bob!\n\n## URL with Multiple Variables\n\n```python\n@app.route(\"/post/<int:post_id>\")\ndef show_post(post_id):\n    return f\"<h1>Post #{post_id}</h1>\"\n\n@app.route(\"/user/<name>/<int:age>\")\ndef user_info(name, age):\n    return f\"<p>{name} is {age} years old</p>\"\n```",
+        "offline_ready": false
+      },
+      {
+        "id": "flask_3",
+        "title": "3. HTML Templates",
+        "content": "# Using HTML Templates\n\nInstead of returning HTML strings from Python, use separate HTML files.\n\n## File Structure\n\nCreate this folder structure:\n```\nproject/\n├── app.py\n└── templates/\n    └── index.html\n```\n\n## app.py\n\n```python\nfrom flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return render_template(\"index.html\")\n\n@app.route(\"/user/<name>\")\ndef greet(name):\n    return render_template(\"greet.html\", username=name)\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\n## templates/index.html\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Home</title>\n</head>\n<body>\n    <h1>Welcome to My Site</h1>\n    <p>This HTML is in a separate file!</p>\n</body>\n</html>\n```\n\n## templates/greet.html\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Greeting</title>\n</head>\n<body>\n    <h1>Hello, {{ username }}!</h1>\n</body>\n</html>\n```\n\n## Using Variables in Templates\n\nIn your template, use `{{ variable_name }}` to insert Python variables:\n\n```html\n<h1>Welcome, {{ username }}</h1>\n<p>Your age is {{ age }}</p>\n```\n\n## If Statements in Templates\n\n```html\n{% if age >= 18 %}\n    <p>You are an adult</p>\n{% else %}\n    <p>You are a minor</p>\n{% endif %}\n```\n\n## Loops in Templates\n\n```html\n<h2>Fruits:</h2>\n<ul>\n{% for fruit in fruits %}\n    <li>{{ fruit }}</li>\n{% endfor %}\n</ul>\n```",
+        "offline_ready": false
+      },
+      {
+        "id": "flask_4",
+        "title": "4. Handling Form Submissions",
+        "content": "# Processing Forms with Flask\n\nCapture user input from HTML forms and process it with Python.\n\n## File Structure\n\n```\nproject/\n├── app.py\n└── templates/\n    ├── form.html\n    └── result.html\n```\n\n## app.py\n\n```python\nfrom flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return render_template(\"form.html\")\n\n@app.route(\"/submit\", methods=[\"GET\", \"POST\"])\ndef submit():\n    if request.method == \"POST\":\n        # Get form data\n        name = request.form[\"name\"]\n        email = request.form[\"email\"]\n        age = request.form[\"age\"]\n        \n        return render_template(\"result.html\", \n                             name=name, \n                             email=email, \n                             age=age)\n    \n    return render_template(\"form.html\")\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\n## templates/form.html\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Contact Form</title>\n</head>\n<body>\n    <h1>Contact Form</h1>\n    \n    <form method=\"POST\" action=\"/submit\">\n        <label>Name:</label><br>\n        <input type=\"text\" name=\"name\" required><br><br>\n        \n        <label>Email:</label><br>\n        <input type=\"email\" name=\"email\" required><br><br>\n        \n        <label>Age:</label><br>\n        <input type=\"number\" name=\"age\" required><br><br>\n        \n        <button type=\"submit\">Submit</button>\n    </form>\n</body>\n</html>\n```\n\n## templates/result.html\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Submission Result</title>\n</head>\n<body>\n    <h1>Thank you for submitting!</h1>\n    \n    <p><strong>Name:</strong> {{ name }}</p>\n    <p><strong>Email:</strong> {{ email }}</p>\n    <p><strong>Age:</strong> {{ age }}</p>\n    \n    <a href=\"/\">Go back</a>\n</body>\n</html>\n```\n\n## How It Works\n\n1. User goes to `/` and sees the form\n2. User fills in the form and clicks \"Submit\"\n3. Form data is sent to `/submit` as POST\n4. Python reads the form data: `request.form[\"name\"]`\n5. Python passes data to `result.html`\n6. User sees a confirmation page with their data",
+        "offline_ready": false
+      },
+      {
+        "id": "flask_5",
+        "title": "5. Storing Data with SQLite",
+        "content": "# Databases with SQLite\n\nStore user data permanently using SQLite (built into Python).\n\n## Installation\n\nNo installation needed! SQLite comes with Python.\n\n## Creating Your First Database\n\nCreate a file called `create_db.py`:\n\n```python\nimport sqlite3\n\n# Connect to database (creates it if it doesn't exist)\nconn = sqlite3.connect('database.db')\nc = conn.cursor()\n\n# Create a table\nc.execute('''CREATE TABLE IF NOT EXISTS users\n             (id INTEGER PRIMARY KEY,\n              name TEXT NOT NULL,\n              email TEXT NOT NULL,\n              age INTEGER)''')\n\nconn.commit()\nconn.close()\n\nprint(\"Database created!\")\n```\n\nRun it: `python create_db.py`\n\n## Inserting Data\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('database.db')\nc = conn.cursor()\n\n# Insert one record\nc.execute(\"INSERT INTO users (name, email, age) VALUES (?, ?, ?)\",\n          (\"Alice\", \"alice@example.com\", 25))\n\nconn.commit()\nconn.close()\n\nprint(\"User added!\")\n```\n\n## Reading Data\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('database.db')\nc = conn.cursor()\n\n# Get all users\nc.execute(\"SELECT * FROM users\")\nusers = c.fetchall()\n\nfor user in users:\n    print(user)  # (1, 'Alice', 'alice@example.com', 25)\n\nconn.close()\n```\n\n## Flask with Database\n\n```python\nfrom flask import Flask, render_template, request\nimport sqlite3\n\napp = Flask(__name__)\n\ndef get_db_connection():\n    conn = sqlite3.connect('database.db')\n    conn.row_factory = sqlite3.Row  # Return rows as dictionaries\n    return conn\n\n@app.route(\"/\")\ndef home():\n    conn = get_db_connection()\n    c = conn.cursor()\n    c.execute(\"SELECT * FROM users\")\n    users = c.fetchall()\n    conn.close()\n    \n    return render_template(\"users.html\", users=users)\n\n@app.route(\"/add\", methods=[\"GET\", \"POST\"])\ndef add_user():\n    if request.method == \"POST\":\n        name = request.form[\"name\"]\n        email = request.form[\"email\"]\n        age = request.form[\"age\"]\n        \n        conn = get_db_connection()\n        c = conn.cursor()\n        c.execute(\"INSERT INTO users (name, email, age) VALUES (?, ?, ?)\",\n                  (name, email, age))\n        conn.commit()\n        conn.close()\n        \n        return \"User added! <a href='/'>Go back</a>\"\n    \n    return render_template(\"add_user.html\")\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\n## templates/users.html\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Users</title>\n</head>\n<body>\n    <h1>Users</h1>\n    \n    <table border=\"1\">\n        <tr>\n            <th>Name</th>\n            <th>Email</th>\n            <th>Age</th>\n        </tr>\n        {% for user in users %}\n        <tr>\n            <td>{{ user['name'] }}</td>\n            <td>{{ user['email'] }}</td>\n            <td>{{ user['age'] }}</td>\n        </tr>\n        {% endfor %}\n    </table>\n    \n    <a href=\"/add\">Add New User</a>\n</body>\n</html>\n```",
+        "offline_ready": false
+      }
+    ]
+  }
+]
